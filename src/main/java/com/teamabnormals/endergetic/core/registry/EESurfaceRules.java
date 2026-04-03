@@ -48,15 +48,15 @@ public final class EESurfaceRules extends SurfaceRules {
 					if (context.lastUpdateXZ != this.lastUpdateXZ) {
 						this.lastUpdateXZ = context.lastUpdateXZ;
 						double corrockNoiseValue = corrockNoise.getValue(x, 0.0F, z);
-						if (corrockNoiseValue < 0.2F) {
+						if (corrockNoiseValue < 0.15F) {
 							this.lastResult = LastResult.NOOP;
 						} else {
 							double tendrilNoiseValue = Math.min(Math.abs(tendrilsNoise.getValue(x, 0.0D, z)), 1.0D);
-							double tendrilThreshold = corrockNoiseValue < 0.5D ? 0.125F : 1.5D * (corrockNoiseValue - 0.5D) + 0.125D;
+							double tendrilThreshold = corrockNoiseValue < 0.5D ? 0.125F : 1.5D * (corrockNoiseValue - 0.4D) + 0.125D;
 							double tendrilProgress = tendrilThreshold - tendrilNoiseValue;
 							if (tendrilProgress >= 0.0D) {
 								this.lastResult = LastResult.CORROCK_EUMUS;
-							} else if (tendrilProgress >= -0.05D || (tendrilProgress >= -0.1D && randomFactory.at(x, 0, z).nextFloat() <= -5.0D * tendrilProgress)) {
+							} else if (tendrilProgress >= -0.15D || (tendrilProgress >= -0.1D && randomFactory.at(x, 0, z).nextFloat() <= -3.0D * tendrilProgress)) {
 								this.lastResult = LastResult.SPECKLED;
 							} else {
 								this.lastResult = LastResult.NOOP;
