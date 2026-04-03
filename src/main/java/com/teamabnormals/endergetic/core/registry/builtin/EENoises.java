@@ -12,8 +12,8 @@ public final class EENoises {
 	public static final ResourceKey<NormalNoise.NoiseParameters> CORROCK_TENDRILS = createKey("corrock_tendrils");
 
 	public static void bootstrap(BootstapContext<NormalNoise.NoiseParameters> context) {
-		context.register(CORROCK, new NormalNoise.NoiseParameters(-8, 2.0D, 1.0D, 1.0D, 1.0D, 4.0D));
-		context.register(CORROCK_TENDRILS, new NormalNoise.NoiseParameters(-4, 1.0D, 1.0D, 0.0D, 1.0D));
+		context.register(CORROCK, new NormalNoise.NoiseParameters(-9, 4.0D, 3.0D, 2.0D, 1.5D, 1.0D));
+		context.register(CORROCK_TENDRILS, new NormalNoise.NoiseParameters(-5, 2.0D, 1.5D, 1.2D, 1.0D));
 	}
 
 	public static ResourceKey<NormalNoise.NoiseParameters> createKey(String name) {
