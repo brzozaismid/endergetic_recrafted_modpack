@@ -30,8 +30,8 @@ public final class HeightmapSpreadDoublePlacement extends PlacementModifier {
 	public Stream<BlockPos> getPositions(PlacementContext context, RandomSource random, BlockPos pos) {
 		int x = pos.getX();
 		int z = pos.getZ();
-		int height = context.getHeight(this.heightmap, x, z);
-		return height == 0 ? Stream.of() : Stream.of(new BlockPos(x, random.nextInt(height * 2), z));
+        int min = context.getMinBuildHeight();
+		return height == 0 ? Stream.of() : Stream.of(new BlockPos(x, random.nextInt((height * 2) - min) + min, z));
 	}
 
 	@Override
