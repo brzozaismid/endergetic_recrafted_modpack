@@ -48,11 +48,11 @@ public final class EESurfaceRules extends SurfaceRules {
 					if (context.lastUpdateXZ != this.lastUpdateXZ) {
 						this.lastUpdateXZ = context.lastUpdateXZ;
 						double corrockNoiseValue = corrockNoise.getValue(x, 0.0F, z);
-						if (corrockNoiseValue < 0.15F) {
+						if (corrockNoiseValue < 0.05F) {
 							this.lastResult = LastResult.NOOP;
 						} else {
 							double tendrilNoiseValue = Math.min(Math.abs(tendrilsNoise.getValue(x, 0.0D, z)), 1.0D);
-							double tendrilThreshold = corrockNoiseValue < 0.5D ? 0.125F : 1.5D * (corrockNoiseValue - 0.4D) + 0.125D;
+							double tendrilThreshold = corrockNoiseValue < 0.5D ? 0.125F : 1.5D * (corrockNoiseValue - 0.1D) + 0.225D;
 							double tendrilProgress = tendrilThreshold - tendrilNoiseValue;
 							if (tendrilProgress >= 0.0D) {
 								this.lastResult = LastResult.CORROCK_EUMUS;
